@@ -256,8 +256,6 @@ int melody[] = {
 int tempo = 200;
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
 
-int divider = 0, noteDuration = 0;
-
 
 void init(void){
 	board_init();
@@ -300,7 +298,8 @@ int main (void)
   // Escreve na tela um circulo e um texto
 	gfx_mono_draw_filled_circle(20, 16, 16, GFX_PIXEL_SET, GFX_WHOLE);
   gfx_mono_draw_string("mundo", 50,16, &sysfont);
-
+	int divider = 0;
+	int noteDuration = 0;
 	int wholenote = (60000 * 4) / tempo;
 
   /* Insert application code here, after the board has been initialized. */
