@@ -19,6 +19,43 @@
 #define SELECAO_PIO_IDX		 19
 #define SELECAO_PIO_IDX_MASK (1u << SELECAO_PIO_IDX)
 
+void set_buzzer(void){
+    pio_set(BUZZER_PIO, BUZZER_PIO_IDX_MASK);
+}
+
+void clear_buzzer(void){
+    pio_clear(BUZZER_PIO, BUZZER_PIO_IDX_MASK);
+}
+int get_startstop(){
+	return pio_get(START_PIO, PIO_INPUT, START_PIO_IDX_MASK);
+}
+int get_selecao(){
+	return pio_get(SELECAO_PIO, PIO_INPUT, SELECAO_PIO_IDX_MASK);
+}
+void toggle_buzzer(int state) {
+    if (state) {
+        set_buzzer();
+    } else {
+        clear_buzzer();
+    }
+}
+void buzzer_teste(int freq) {
+    int contador;
+    int duration = 1000000 / freq;
+
+    while (1) {
+        for (contador = 0; contador < duration; contador++) {
+            toggle_buzzer(1);  
+            delay_us(1);
+        }
+
+        for (contador = 0; contador < duration; contador++) {
+            toggle_buzzer(0);  
+            delay_us(1);
+        }
+    }
+}
+
 void init(void){
 	board_init();
 	sysclk_init();
@@ -50,28 +87,12 @@ void init(void){
 	NVIC_SetPriority(SELECAO_PIO_ID, 0);
 }
 
-void set_buzzer(void){
-    pio_set(BUZZER_PIO, BUZZER_PIO_IDX_MASK);
-}
-
-void clear_buzzer(void){
-    pio_clear(BUZZER_PIO, BUZZER_PIO_IDX_MASK);
-}
-int get_startstop(){
-	return pio_get(START_PIO, PIO_INPUT, START_PIO_IDX_MASK);
-}
-int get_selecao(){
-	return pio_get(SELECAO_PIO, PIO_INPUT, SELECAO_PIO_IDX_MASK);
-}
-
 int main (void)
 {
-	board_init();
-	sysclk_init();
-	delay_init();
 
   // Init OLED
 	gfx_mono_ssd1306_init();
+	init();
   
   // Escreve na tela um circulo e um texto
 	gfx_mono_draw_filled_circle(20, 16, 16, GFX_PIXEL_SET, GFX_WHOLE);
@@ -79,6 +100,6 @@ int main (void)
 
   /* Insert application code here, after the board has been initialized. */
 	while(1) {
-
+		buzzer_teste(1000);
 	}
 }

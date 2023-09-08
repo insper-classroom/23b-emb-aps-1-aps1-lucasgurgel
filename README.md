@@ -28,6 +28,10 @@ TODO: Inserir imagem do sistema montado
 
 TODO: Inserir link para vídeo do projeto funcionando
 
+### Vídeo da ISSUE 4 - Validação do Buzzer Test
+
+https://www.youtube.com/shorts/3knSFznx1eg
+
 ### Músicas e Direitos autorais
 
 TODO: Listar músicas e dar crédio da onde saiu:
