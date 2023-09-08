@@ -14,6 +14,11 @@
 #define START_PIO_IDX	 31
 #define START_PIO_IDX_MASK (1u << START_PIO_IDX)
 
+#define SELECAO_PIO 		 PIOA
+#define SELECAO_PIO_ID		 ID_PIOA
+#define SELECAO_PIO_IDX		 19
+#define SELECAO_PIO_IDX_MASK (1u << SELECAO_PIO_IDX)
+
 void init(void){
 	board_init();
 	sysclk_init();
@@ -27,14 +32,22 @@ void init(void){
 
 	// Configura botao
 	pmc_enable_periph_clk(START_PIO_ID);
+	pmc_enable_periph_clk(SELECAO_PIO_ID);
+
 	pio_configure(START_PIO, PIO_INPUT, START_PIO_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
 	pio_set_debounce_filter(START_PIO, START_PIO_IDX_MASK, 60);
+	pio_configure(SELECAO_PIO, PIO_INPUT, SELECAO_PIO_IDX_MASK, PIO_PULLUP | PIO_DEBOUNCE);
+	pio_set_debounce_filter(SELECAO_PIO, SELECAO_PIO_IDX_MASK, 60);
 
 	pio_enable_interrupt(START_PIO, START_PIO_IDX_MASK);
   	pio_get_interrupt_status(START_PIO);
+	pio_enable_interrupt(SELECAO_PIO, SELECAO_PIO_IDX_MASK);
+  	pio_get_interrupt_status(SELECAO_PIO);
 
 	NVIC_EnableIRQ(START_PIO_ID);
 	NVIC_SetPriority(START_PIO_ID, 0); 
+	NVIC_EnableIRQ(SELECAO_PIO_ID);
+	NVIC_SetPriority(SELECAO_PIO_ID, 0);
 }
 
 void set_buzzer(void){
@@ -46,6 +59,9 @@ void clear_buzzer(void){
 }
 int get_startstop(){
 	return pio_get(START_PIO, PIO_INPUT, START_PIO_IDX_MASK);
+}
+int get_selecao(){
+	return pio_get(SELECAO_PIO, PIO_INPUT, SELECAO_PIO_IDX_MASK);
 }
 
 int main (void)
