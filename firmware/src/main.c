@@ -4,6 +4,32 @@
 #include "gfx_mono_text.h"
 #include "sysfont.h"
 
+#define BUZZER_PIO		   PIOD 
+#define BUZZER_PIO_ID	   ID_PIOD
+#define BUZZER_PIO_IDX	   20
+#define BUZZER_PIO_IDX_MASK (1u << BUZZER_PIO_IDX)
+
+void init(void){
+	board_init();
+	sysclk_init();
+	delay_init();
+
+	// Desativa watchdog
+	WDT->WDT_MR = WDT_MR_WDDIS;
+
+	// Configura buzzer
+	pmc_enable_periph_clk(BUZZER_PIO_ID);
+	pio_configure(BUZZER_PIO, PIO_OUTPUT_0, BUZZER_PIO_IDX_MASK, PIO_DEFAULT);
+}
+
+void set_buzzer(void){
+    pio_set(BUZZER_PIO, BUZZER_PIO_IDX_MASK);
+}
+
+void clear_buzzer(void){
+    pio_clear(BUZZER_PIO, BUZZER_PIO_IDX_MASK);
+}
+
 int main (void)
 {
 	board_init();
