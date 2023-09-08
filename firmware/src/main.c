@@ -257,7 +257,7 @@ int tempo = 200;
 int notes = sizeof(melody) / sizeof(melody[0]) / 2;
 
 // this calculates the duration of a whole note in ms
-int wholenote;
+volatile int wholenote;
 
 int divider = 0, noteDuration = 0;
 
