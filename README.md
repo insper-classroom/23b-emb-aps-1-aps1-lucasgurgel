@@ -16,8 +16,8 @@ TODO: Aualizar pinos
 
 | Função  | PINO (ex: PA11) |
 |---------|-----------------|
-| BUZZER  |                 |
-| START   |                 |
+| BUZZER  |      PD 20      |
+| START   |      PC 31      |
 | SELEÇÃO |                 |
 
 ### Imagem da montagem
