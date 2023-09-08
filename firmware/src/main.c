@@ -56,6 +56,19 @@ void buzzer_teste(int freq) {
     }
 }
 
+//tone, frequencia em Hz, tempo em ms
+void tone(int freq, int time) {
+    int duracaoPulso = 1000000 / freq; //Duracao de cada pulso em microsegundos
+    int totalPulsos = (time * 1000) / duracaoPulso;  //Quantidade de pulsos
+    for (int i = 0; i < totalPulsos; i++) {
+        set_buzzer();
+        delay_us(duracaoPulso / 2); 
+        clear_buzzer();
+        delay_us(duracaoPulso / 2); 
+    }
+}
+
+
 void init(void){
 	board_init();
 	sysclk_init();
@@ -100,6 +113,9 @@ int main (void)
 
   /* Insert application code here, after the board has been initialized. */
 	while(1) {
-		buzzer_teste(1000);
+		for(int freq=200; freq<5000; freq+=500){
+			tone(freq, 200 + freq/2);
+			delay_ms(200);
+		}
 	}
 }
