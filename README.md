@@ -30,7 +30,7 @@ funcoes.h: Este arquivo tem a definição de todas as funções, além de estabe
 
 ### Imagem da montagem
 
-[APS 1 - FOTO](https://github.com/insper-classroom/23b-emb-aps-1-aps1-lucasgurgel/assets/81190013/d41c9a84-363f-4acb-8b29-39021937d036)
+![APS 1 - FOTO](https://github.com/insper-classroom/23b-emb-aps-1-aps1-lucasgurgel/assets/81190013/d41c9a84-363f-4acb-8b29-39021937d036)
 
 
 ### Vídeo do projeto
