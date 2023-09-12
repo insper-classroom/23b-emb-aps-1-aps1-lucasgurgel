@@ -1,6 +1,7 @@
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
+
 typedef struct
 {
 	char indice;
