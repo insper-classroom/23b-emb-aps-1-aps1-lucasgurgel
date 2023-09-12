@@ -1,10 +1,6 @@
-//funcoes.h
 #ifndef FUNCOES_H
 #define FUNCOES_H
 
-//--------------------------------------------
-// Defines
-//--------------------------------------------
 typedef struct
 {
 	char indice;

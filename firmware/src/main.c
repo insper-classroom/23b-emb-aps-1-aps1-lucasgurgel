@@ -1,9 +1,5 @@
 #include <asf.h>
 
-#include "gfx_mono_ug_2832hsweg04.h"
-#include "gfx_mono_text.h"
-#include "sysfont.h"
-
 #include "funcoes.h"
 #include "musicas.h"
 
@@ -17,7 +13,7 @@ void init(void)
 	WDT->WDT_MR = WDT_MR_WDDIS;
 
  	// Init OLED
-	gfx_mono_ssd1306_init();
+	//gfx_mono_ssd1306_init();
 
   	// Configura led
 	pmc_enable_periph_clk(LED_PIO1_ID);
