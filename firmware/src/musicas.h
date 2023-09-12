@@ -133,8 +133,8 @@ const int harrypotter_melodia[] = {
   NOTE_G4, -1, 
   
 };
-int harrypotter_tempo = 144;   
-int harrypotter_tamanho = sizeof(harrypotter_melodia)/sizeof(harrypotter_melodia[0]);
+const int harrypotter_tempo = 144;   
+const int harrypotter_tamanho = sizeof(harrypotter_melodia)/sizeof(harrypotter_melodia[0]);
 
 
 //Super Mario Bros
@@ -230,8 +230,8 @@ const int mario_melodia[] = {
   NOTE_G4,8, NOTE_D4,8, NOTE_E4,-2,  
 
 };
-int mario_tempo = 200;
-int mario_tamanho = sizeof(mario_melodia)/sizeof(mario_melodia[0]);
+const int mario_tempo = 200;
+const int mario_tamanho = sizeof(mario_melodia)/sizeof(mario_melodia[0]);
 
 // Natal
 
@@ -305,5 +305,5 @@ const int natal_melodia[] = {
   NOTE_F5,2, REST,4
 };
 
-natal_tempo = 140;
-natal_tamanho = sizeof(natal_melodia)/sizeof(natal_melodia[0]);
+const int natal_tempo = 140;
+const int natal_tamanho = sizeof(natal_melodia)/sizeof(natal_melodia[0]);

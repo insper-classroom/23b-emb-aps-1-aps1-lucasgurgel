@@ -1,3 +1,6 @@
+#ifndef FUNCOES_H
+#define FUNCOES_H
+
 //--------------------------------------------
 // Defines
 //--------------------------------------------
@@ -55,3 +58,4 @@ void tone(int freq, int time_us);
 void play_song_sequence(music m);
 void play_from_list(music m[], int size);
 
+#endif // FUNCOES_H
