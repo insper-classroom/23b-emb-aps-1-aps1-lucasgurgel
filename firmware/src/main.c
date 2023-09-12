@@ -92,6 +92,12 @@ void init(void)
 int main (void)
 {
 	init();	
+	const int harrypotter_tempo = 144;   
+	const int harrypotter_tamanho = sizeof(harrypotter_melodia)/sizeof(harrypotter_melodia[0]);
+	const int mario_tempo = 200;
+	const int mario_tamanho = sizeof(mario_melodia)/sizeof(mario_melodia[0]);
+	const int natal_tempo = 140;
+	const int natal_tamanho = sizeof(natal_melodia)/sizeof(natal_melodia[0]);
 	music harrypotter = {0, harrypotter_tempo, &harrypotter_melodia, harrypotter_tamanho};
 	music mario = {1, mario_tempo, &mario_melodia, mario_tamanho};
 	music natal = {2, natal_tempo, &natal_melodia, natal_tamanho};
